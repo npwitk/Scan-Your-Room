@@ -5,6 +5,7 @@
 //  Created by Nonprawich I. on 11/01/2025.
 //
 
+import RoomPlan
 import SwiftUI
 
 @main
@@ -13,5 +14,14 @@ struct Scan_Your_RoomApp: App {
         WindowGroup {
             ContentView()
         }
+    }
+}
+
+@ViewBuilder
+func checkDeviceView() -> some View {
+    if RoomCaptureSession.isSupported {
+        ContentView()
+    } else {
+        UnsupportedDeviceView()
     }
 }
